@@ -6,7 +6,7 @@
 <title>
   File: README
   
-    &mdash; Documentation by YARD 0.9.9
+    &mdash; Documentation by YARD 0.9.19
   
 </title>
 
@@ -58,80 +58,62 @@
       </div>
 
       <div id="content"><div id='filecontents'>
-<h1 id="label-SixArm.com+-E2-86-92+Ruby+-E2-86-92+Minitest++assert_equal_via_send+assertion+-26+expectations">SixArm.com → Ruby → Minitest <br> assert_equal_via_send assertion &amp; expectations</h1>
-<!--HEADER-OPEN-->
-<p><a
-href="http://badge.fury.io/rb/sixarm_ruby_minitest_assert_equal_via_send"><img
-src="https://badge.fury.io/rb/sixarm_ruby_minitest_assert_equal_via_send.svg"></a>
-<a
-href="https://travis-ci.org/SixArm/sixarm_ruby_minitest_assert_equal_via_send"><img
-src="https://travis-ci.org/SixArm/sixarm_ruby_minitest_assert_equal_via_send.png"></a>
-<a
-href="https://codeclimate.com/github/SixArm/sixarm_ruby_minitest_assert_equal_via_send"><img
-src="https://codeclimate.com/github/SixArm/sixarm_ruby_minitest_assert_equal_via_send.png"></a>
-<a
-href="https://coveralls.io/github/SixArm/sixarm_ruby_minitest_assert_equal_via_send?branch=master"><img
-src="https://coveralls.io/repos/SixArm/sixarm_ruby_minitest_assert_equal_via_send/badge.svg?branch=master&service=github"></a></p>
+<p>&lt;img src=“README.png” width=“960” height=“120” alt=“README” /&gt;</p>
+
+<h1 id="label-SixArm.com+-E2-86-92+Ruby+-E2-86-92+minitest+assert_equal_via_send+assert+-26+expect">SixArm.com → Ruby → minitest<br> assert_equal_via_send assert &amp; expect</h1>
+<!--header-open-->
+<p><a href="http://badge.fury.io/rb/sixarm_ruby_minitest_assert_equal_via_send"><img src="https://badge.fury.io/rb/sixarm_ruby_minitest_assert_equal_via_send.svg"></a> <a href="https://travis-ci.org/SixArm/sixarm_ruby_minitest_assert_equal_via_send"><img src="https://travis-ci.org/SixArm/sixarm_ruby_minitest_assert_equal_via_send.png"></a> <a href="https://codeclimate.com/github/SixArm/sixarm_ruby_minitest_assert_equal_via_send/maintainability"><img src="https://api.codeclimate.com/v1/badges/d4ab7df02c1d65f0e8e2/maintainability"></a></p>
 <ul><li>
-<p>Git: <a
-href="https://github.com/sixarm/sixarm_ruby_minitest_assert_equal_via_send">github.com/sixarm/sixarm_ruby_minitest_assert_equal_via_send</a></p>
+<p>Git: <a href="https://github.com/SixArm/sixarm_ruby_minitest_assert_equal_via_send">github.com/SixArm/sixarm_ruby_minitest_assert_equal_via_send</a></p>
 </li><li>
-<p>Doc: <a
-href="http://sixarm.com/sixarm_ruby_minitest_assert_equal_via_send/doc">sixarm.com/sixarm_ruby_minitest_assert_equal_via_send/doc</a></p>
+<p>Doc: <a href="http://sixarm.com/sixarm_ruby_minitest_assert_equal_via_send/doc">sixarm.com/sixarm_ruby_minitest_assert_equal_via_send/doc</a></p>
 </li><li>
-<p>Gem: <a
-href="https://rubygems.org/gems/sixarm_ruby_minitest_assert_equal_via_send">rubygems.org/gems/sixarm_ruby_minitest_assert_equal_via_send</a></p>
+<p>Gem: <a href="https://rubygems.org/gems/sixarm_ruby_minitest_assert_equal_via_send">rubygems.org/gems/sixarm_ruby_minitest_assert_equal_via_send</a></p>
 </li><li>
-<p>Contact: Joel Parker Henderson, <a
-href="mailto:joel@sixarm.com">joel@sixarm.com</a></p>
+<p>Contact: Joel Parker Henderson, <a href="mailto:joel@sixarm.com">joel@sixarm.com</a></p>
 </li><li>
-<p>Project: <a href="CHANGES.md">Changes</a>, <a
-href="LICENSE.md">License</a>, <a href="CONTRIBUTING.md">Contributing</a>.</p>
+<p>Project: <a href="CHANGES.md">changes</a>, <a href="LICENSE.md">license</a>, <a href="CONTRIBUTING.md">contributing</a>.</p>
 </li></ul>
-<!--HEADER-SHUT-->
+<!--header-shut-->
 <h2 id="label-Introduction">Introduction</h2>
 
-<p>Minitest extensions for our common cases:</p>
+<p>Minitest extension that compares two objects via the <code>#send</code> method.</p>
+<ul><li>
+<p>If <code>exp.send(args)</code> is equal to <code>act.send(args)</code>, then the test passes.</p>
+</li></ul>
 
 <p>Assert:</p>
 <ul><li>
-<p>assert_true</p>
+<p>assert_equal_via_send(exp, act, [:method_name, param_1, param2], msg)</p>
 </li><li>
-<p>assert_false</p>
-</li><li>
-<p>assert_respond_to_all</p>
-</li><li>
-<p>assert_equal_items</p>
+<p>refute_equal_via_send(exp, act, [:method_name, param_1, param2], msg)</p>
 </li></ul>
 
 <p>Spec:</p>
 <ul><li>
-<p>must_be_true</p>
+<p>expect(act).must_equal_via_send(exp, [:method_name, param_1, param2], msg)</p>
 </li><li>
-<p>must_be_false</p>
-</li><li>
-<p>must_respond_to_all</p>
-</li><li>
-<p>must_have_equal_items</p>
+<p>expect(act).wont_equal_via_send(exp, [:method_name, param_1, param2], msg)</p>
 </li></ul>
 
 <p>Based on Minitest.</p>
 
-<p>For docs go to <a
-href="http://sixarm.com/sixarm_ruby_minitest_assert_equal_via_send/doc">sixarm.com/sixarm_ruby_minitest_assert_equal_via_send/doc</a></p>
+<p>For docs go to <a href="http://sixarm.com/sixarm_ruby_minitest_assert_equal_via_send/doc">sixarm.com/sixarm_ruby_minitest_assert_equal_via_send/doc</a></p>
 
 <p>Want to help? We&#39;re happy to get pull requests.</p>
-<!--INSTALL-OPEN-->
+<!--install-open-->
 <h2 id="label-Install">Install</h2>
 
 <h3 id="label-Gem">Gem</h3>
 
-<p>Run this command in your shell or terminal:</p>
+<p>To install this gem in your shell or terminal:</p>
 
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_gem'>gem</span> <span class='id identifier rubyid_install'>install</span> <span class='id identifier rubyid_sixarm_ruby_minitest_assert_equal_via_send'>sixarm_ruby_minitest_assert_equal_via_send</span>
 </code></pre>
 
-<p>Or add this to your Gemfile:</p>
+<h3 id="label-Gemfile">Gemfile</h3>
+
+<p>To add this gem to your Gemfile:</p>
 
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_gem'>gem</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>sixarm_ruby_minitest_assert_equal_via_send</span><span class='tstring_end'>&#39;</span></span>
 </code></pre>
@@ -142,34 +124,34 @@ href="http://sixarm.com/sixarm_ruby_minitest_assert_equal_via_send/doc">sixarm.c
 
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>sixarm_ruby_minitest_assert_equal_via_send</span><span class='tstring_end'>&#39;</span></span>
 </code></pre>
-<!--INSTALL-SHUT-->
+<!--install-shut-->
 <h2 id="label-Examples">Examples</h2>
 
-<p>Example Minitest spec:</p>
+<p>Example setup</p>
 
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_describe'>describe</span> <span class='const'>Foo</span> <span class='kw'>do</span>
-  <span class='id identifier rubyid_it'>it</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>validates</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
-    <span class='id identifier rubyid_f'>f</span> <span class='op'>=</span> <span class='const'>Foo</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
-    <span class='id identifier rubyid_f'>f</span><span class='period'>.</span><span class='id identifier rubyid_valid?'>valid?</span><span class='period'>.</span><span class='id identifier rubyid_must_be_true'>must_be_true</span>
-  <span class='kw'>end</span>
+<pre class="code ruby"><code class="ruby"><span class='ivar'>@exp</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='symbol'>:alpha</span><span class='comma'>,</span> <span class='symbol'>:bravo</span><span class='rbracket'>]</span>
+<span class='ivar'>@act</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='symbol'>:alpha</span><span class='comma'>,</span> <span class='symbol'>:charlie</span><span class='rbracket'>]</span>
+</code></pre>
+
+<p>Example minitest assert:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='kw'>def</span> <span class='id identifier rubyid_test_me'>test_me</span>
+  <span class='id identifier rubyid_assert_equal_via_send'>assert_equal_via_send</span><span class='lparen'>(</span><span class='ivar'>@exp</span><span class='comma'>,</span> <span class='ivar'>@act</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='symbol'>:has_key?</span><span class='comma'>,</span> <span class='symbol'>:alpha</span><span class='rbracket'>]</span><span class='rparen'>)</span>
 <span class='kw'>end</span>
 </code></pre>
 
-<p>Example Minitest spec:</p>
+<p>Example minitest spec:</p>
 
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_describe'>describe</span> <span class='const'>Foo</span> <span class='kw'>do</span>
-  <span class='id identifier rubyid_it'>it</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>is colorful</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
-    <span class='id identifier rubyid_f'>f</span> <span class='op'>=</span> <span class='const'>Foo</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
-    <span class='id identifier rubyid_f'>f</span><span class='period'>.</span><span class='id identifier rubyid_must_respond_to_all'>must_respond_to_all</span> <span class='lbracket'>[</span><span class='symbol'>:red</span><span class='comma'>,</span> <span class='symbol'>:green</span><span class='comma'>,</span> <span class='symbol'>:blue</span><span class='rbracket'>]</span>
-  <span class='kw'>end</span>
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_it'>it</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>works</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+  <span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='ivar'>@act</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_must_equal_via_send'>must_equal_via_send</span><span class='lparen'>(</span><span class='ivar'>@exp</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='symbol'>:has_key?</span><span class='comma'>,</span> <span class='symbol'>:alpha</span><span class='rbracket'>]</span><span class='rparen'>)</span>
 <span class='kw'>end</span>
 </code></pre>
 </div></div>
 
       <div id="footer">
-  Generated on Wed Nov  8 21:47:17 2017 by
+  Generated on Thu Apr 25 22:30:31 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.9 (ruby-2.4.2).
+  0.9.19 (ruby-2.6.3).
 </div>
 
     </div>
