@@ -1,15 +1,15 @@
 # -*- coding: utf-8 -*-
 require "sixarm_ruby_minitest_assert_equal_via_send"
 
-class C
-  attr_accessor :x
-end
-
 describe "Minitest" do
 
+  class self::C
+    attr_accessor :x
+  end
+  
   before do
-    @exp = C.new
-    @act = C.new
+    @exp = self.class::C.new
+    @act = self.class::C.new
   end
 
   describe "Assertions" do
@@ -27,10 +27,14 @@ describe "Minitest" do
         specify "invalid" do
           @exp.x = :a
           @act.x = :b
-          err = proc { 
+          expect { 
             assert_equal_via_send(@exp, @act, [:x])
           }.must_raise MiniTest::Assertion
-          err.message.must_match(/\bExpected equal\b/)
+          begin
+            assert_equal_via_send(@exp, @act, [:x])
+          rescue MiniTest::Assertion => err
+            expect(err.message).must_match(/\bExpected equal\b/)
+          end
         end
 
       end
@@ -42,10 +46,14 @@ describe "Minitest" do
           specify "raise" do
             @exp = nil
             @act.x = :a
-            err = proc {
+            expect {
               assert_equal_via_send(@exp, @act, [:x])
             }.must_raise MiniTest::Assertion
-            err.message.must_match(/\bExpected `expect`, but got nil\b/)
+            begin
+              assert_equal_via_send(@exp, @act, [:x])
+            rescue MiniTest::Assertion => err
+              expect(err.message).must_match(/\bExpected `expect`, but got nil\b/)
+            end
           end
 
         end
@@ -55,10 +63,14 @@ describe "Minitest" do
           specify "raise" do
             @exp.x = :a
             @act = nil
-            err = proc {
+            expect {
               assert_equal_via_send(@exp, @act, [:x])
             }.must_raise MiniTest::Assertion
-            err.message.must_match(/\bExpected `actual`, but got nil\b/)
+            begin
+              assert_equal_via_send(@exp, @act, [:x])
+            rescue MiniTest::Assertion => err
+              expect(err.message).must_match(/\bExpected `actual`, but got nil\b/)
+            end
           end
 
         end
@@ -68,10 +80,14 @@ describe "Minitest" do
           specify "raise" do
             @exp.x = nil
             @act.x = :a
-            err = proc {
+            expect {
               assert_equal_via_send(@exp, @act, [:x])
             }.must_raise MiniTest::Assertion
-            err.message.must_match(/\bExpected `expect_value`, but got nil\b/)
+            begin
+              assert_equal_via_send(@exp, @act, [:x])
+            rescue MiniTest::Assertion => err
+              expect(err.message).must_match(/\bExpected `expect_value`, but got nil\b/)
+            end
           end
 
         end
@@ -81,10 +97,14 @@ describe "Minitest" do
           specify "raise" do
             @exp.x = :a
             @act.x = nil
-            err = proc {
+            expect {
               assert_equal_via_send(@exp, @act, [:x])
             }.must_raise MiniTest::Assertion
-            err.message.must_match(/\bExpected `actual_value`, but got nil\b/)
+            begin
+              assert_equal_via_send(@exp, @act, [:x])
+            rescue MiniTest::Assertion => err
+              expect(err.message).must_match(/\bExpected `actual_value`, but got nil\b/)
+            end
           end
 
         end
@@ -94,10 +114,14 @@ describe "Minitest" do
           specify "raise" do
             @exp.x = :a
             @act.x = :a
-            err = proc {
+            expect {
               assert_equal_via_send(@exp, @act, nil)
             }.must_raise MiniTest::Assertion
-            err.message.must_match(/\bExpected `send_args`, but got nil\b/)
+            begin
+              assert_equal_via_send(@exp, @act, nil)
+            rescue MiniTest::Assertion => err
+              expect(err.message).must_match(/\bExpected `send_args`, but got nil\b/)
+            end
           end
 
         end
@@ -119,10 +143,14 @@ describe "Minitest" do
         specify "invalid" do
           @exp.x = :a
           @act.x = :a
-          err = proc { 
+          expect { 
             refute_equal_via_send(@exp, @act, [:x])
           }.must_raise MiniTest::Assertion
-          err.message.must_match(/\bExpected not equal\b/)
+          begin
+            refute_equal_via_send(@exp, @act, [:x])
+          rescue MiniTest::Assertion => err
+            expect(err.message).must_match(/\bExpected not equal\b/)
+          end
         end
 
       end
@@ -134,10 +162,14 @@ describe "Minitest" do
           specify "raise" do
             @exp = nil
             @act.x = :a
-            err = proc {
+            expect {
               assert_equal_via_send(@exp, @act, [:x])
             }.must_raise MiniTest::Assertion
-            err.message.must_match(/\bExpected `expect`, but got nil\b/)
+            begin
+              assert_equal_via_send(@exp, @act, [:x])
+            rescue MiniTest::Assertion => err
+              expect(err.message).must_match(/\bExpected `expect`, but got nil\b/)
+            end
           end
 
         end
@@ -147,10 +179,14 @@ describe "Minitest" do
           specify "raise" do
             @exp.x = :a
             @act = nil
-            err = proc {
+            expect {
               assert_equal_via_send(@exp, @act, [:x])
             }.must_raise MiniTest::Assertion
-            err.message.must_match(/\bExpected `actual`, but got nil\b/)
+            begin
+              assert_equal_via_send(@exp, @act, [:x])
+            rescue MiniTest::Assertion => err
+              expect(err.message).must_match(/\bExpected `actual`, but got nil\b/)
+            end
           end
 
         end
@@ -160,10 +196,14 @@ describe "Minitest" do
           specify "raise" do
             @exp.x = nil
             @act.x = :a
-            err = proc {
+            expect {
               assert_equal_via_send(@exp, @act, [:x])
             }.must_raise MiniTest::Assertion
-            err.message.must_match(/\bExpected `expect_value`, but got nil\b/)
+            begin
+              assert_equal_via_send(@exp, @act, [:x])
+            rescue MiniTest::Assertion => err
+              expect(err.message).must_match(/\bExpected `expect_value`, but got nil\b/)
+            end
           end
 
         end
@@ -173,10 +213,14 @@ describe "Minitest" do
           specify "raise" do
             @exp.x = :a
             @act.x = nil
-            err = proc {
+            expect {
               assert_equal_via_send(@exp, @act, [:x])
             }.must_raise MiniTest::Assertion
-            err.message.must_match(/\bExpected `actual_value`, but got nil\b/)
+            begin
+              assert_equal_via_send(@exp, @act, [:x])
+            rescue MiniTest::Assertion => err
+              expect(err.message).must_match(/\bExpected `actual_value`, but got nil\b/)
+            end
           end
 
         end
@@ -186,10 +230,14 @@ describe "Minitest" do
           specify "raise" do
             @exp.x = :a
             @act.x = :a
-            err = proc {
+            expect {
               assert_equal_via_send(@exp, @act, nil)
             }.must_raise MiniTest::Assertion
-            err.message.must_match(/\bExpected `send_args`, but got nil\b/)
+            begin
+              assert_equal_via_send(@exp, @act, [:x])
+            rescue MiniTest::Assertion => err
+              expect(err.message).must_match(/\bExpected `send_args`, but got nil\b/)
+            end
           end
 
         end
